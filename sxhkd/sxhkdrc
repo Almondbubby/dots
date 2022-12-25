@@ -1,0 +1,62 @@
+super + Return
+	kitty
+super + space  
+	dmenu_run
+super + z
+	brave
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+super + c
+	bspc node -{c,k}
+
+super + Escape
+	pkill -USR1 -x sxhkd
+
+super + {t,ctrl + t,f,p}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+alt + Tab
+	bspc node -f last
+
+super + m
+	bspc desktop -l next
+
+alt + q
+	bspc desktop -f 1
+
+alt + w
+	bspc desktop -f 2
+
+alt + a
+	bspc desktop -f 3
+
+alt + s
+	bspc desktop -f 4
+
+alt + z
+	bspc desktop -f 5
+
+alt + x
+	bspc desktop -f 6
+
+super + shift + q
+	bspc node -d 1
+
+super + shift + w
+	bspc node -d 2
+
+super + shift + a
+	bspc node -d 3
+
+super + shift + s
+	bspc node -d 4
+
+super + shift + z
+	bspc node -d 5
+
+super + shift + x
+	bspc node -d 6

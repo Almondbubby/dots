@@ -3,21 +3,12 @@
 sxhkd &
 picom --config $HOME/.config/picom/picom.conf &
 
-if [[ $(xrandr -q | grep 'HDMI-0 connected') ]]; then
-	xrandr --output HDMI-0 --primary --mode 2560x1440 --rotate normal --output eDP-1-1 --mode 1920x1080 --rotate normal --right-of HDMI-0
-fi
-
-feh --bg-scale /home/almondbubby/Documents/Wallpapers/ddfb91cdcf5620c2bf554afb2202d2e9.png
+feh -Z --bg-scale /home/almondbubby/Documents/Wallpapers/your-name-sky-stars-kimi-no-na-wa-lights-anime-10260.png
 
 killall -q polybar
 
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
-
-polybar top_external &
-
-if [[ $(xrandr -q | grep 'HDMI-0 connected') ]]; then
-	polybar top &
-fi
+polybar top &
 
 xsetroot -cursor_name left_ptr
 
@@ -34,5 +25,5 @@ bspc rule -a Chromium desktop='^2'
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 
 
-bspc monitor HDMI-0 -d 1 2 3 4 5 6
-bspc monitor eDP-1-1 -d 1 2 3 4 5 6
+bspc monitor HDMI-1-0 -d 1 2 3 4 5 6
+bspc monitor eDP1 -d 7 8 9 0 11 12

@@ -1,12 +1,15 @@
 super + Return
 	kitty
 super + space  
+	rofi -show drun
+super + r
 	dmenu_run
 super + z
 	brave
 super + alt + {q,r}
 	bspc {quit,wm -r}
-
+super + s
+    flameshot gui
 super + c
 	bspc node -{c,k}
 
@@ -25,23 +28,41 @@ alt + Tab
 super + m
 	bspc desktop -l next
 
+alt + shift + q
+	bspc desktop -f 7
+
+alt + shift + w
+	bspc desktop -f 8
+
+alt + shift + a
+	bspc desktop -f 9
+
+alt + shift + s
+	bspc desktop -f 0
+
+alt + shift + z
+	bspc desktop -f 11
+
+alt + shift + x
+	bspc desktop -f 12
+
 alt + q
-	bspc desktop -f 1
+      bspc desktop -f 1
 
 alt + w
-	bspc desktop -f 2
+      bspc desktop -f 2
 
 alt + a
-	bspc desktop -f 3
+      bspc desktop -f 3
 
 alt + s
-	bspc desktop -f 4
+      bspc desktop -f 4
 
 alt + z
-	bspc desktop -f 5
+      bspc desktop -f 5
 
 alt + x
-	bspc desktop -f 6
+	bspc desktop -f 6 
 
 super + shift + q
 	bspc node -d 1
@@ -60,3 +81,54 @@ super + shift + z
 
 super + shift + x
 	bspc node -d 6
+
+
+ctrl + super + q
+	bspc node -d 7
+
+super + ctrl + w
+	bspc node -d 8
+
+super + ctrl + a
+	bspc node -d 9
+
+super + ctrl + s
+	bspc node -d 0
+
+super + ctrl + z
+	bspc node -d 11
+
+super + ctrl + x
+	bspc node -d 12
+
+# Raise volume
+XF86AudioRaiseVolume
+  pactl set-sink-volume @DEFAULT_SINK@ +5%
+ 
+# Lower volume
+XF86AudioLowerVolume
+  pactl set-sink-volume @DEFAULT_SINK@ -5%
+ 
+# Mute
+XF86AudioMute
+  pactl set-sink-mute @DEFAULT_SINK@ toggle
+ 
+# Play
+XF86AudioPlay
+    playerctl play-pause
+ 
+#Next
+XF86AudioNext
+    playerctl next
+ 
+#previous
+XF86AudioPrev
+    playerctl previous
+ 
+#Stop
+XF86AudioStop
+    playerctl stop
+
+XF85MonBrightness{Up,Down}
+    xbacklight -inc 10
+    xbacklight -dec 10

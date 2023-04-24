@@ -3,7 +3,7 @@
 sxhkd &
 picom --config $HOME/.config/picom/picom.conf &
 
-feh -Z --bg-scale /home/almondbubby/Documents/Wallpapers/your-name-sky-stars-kimi-no-na-wa-lights-anime-10260.png
+feh -Z --bg-scale /home/almondbubby/Documents/Wallpapers/40.png
 
 killall -q polybar
 

@@ -15,20 +15,31 @@ return require('packer').startup(function(use)
   }
 
 use({
-    'rose-pine/neovim',
-    as = 'rose-pine',
+    'ellisonleao/gruvbox.nvim',
+    as = 'gruvbox',
     config = function()
-        vim.cmd('colorscheme rose-pine')
+        vim.cmd('colorscheme gruvbox')
     end
 })
+use ({"ziontee113/color-picker.nvim",
+    config = function()
+        require("color-picker")
+    end,
+})
 use('vim-airline/vim-airline')
+use({'nvim-orgmode/orgmode', config = function()
+  require('orgmode').setup{}
+end,
+})
 use('vim-airline/vim-airline-themes')
 
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
-  use('mbbill/undotree')
-
-  use {
+use('mbbill/undotree')
+use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup()
+  end}
+use {
   'VonHeikemen/lsp-zero.nvim',
   requires = {
     -- LSP Support
@@ -37,7 +48,12 @@ use('vim-airline/vim-airline-themes')
     {'williamboman/mason-lspconfig.nvim'},
 
     -- Autocompletion
-    {'hrsh7th/nvim-cmp'},
+    {'hrsh7th/nvim-cmp', require('cmp').setup({
+        sources = {
+            {name = 'orgmode'}
+        }
+        })
+    },
     {'hrsh7th/cmp-buffer'},
     {'hrsh7th/cmp-path'},
     {'saadparwaiz1/cmp_luasnip'},
